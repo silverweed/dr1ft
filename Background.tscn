@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="Gradient" id=1]
+
+offsets = PoolRealArray( 0, 0.5, 1 )
+colors = PoolColorArray( 0.328979, 0, 0.601562, 1, 0.300781, 0.0549815, 0.0549815, 1, 0.96875, 0, 1, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+
+flags = 4
+gradient = SubResource( 1 )
+width = 2048
+
+[node name="Background" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+position = Vector2( -27.0547, 603.372 )
+rotation = 4.71239
+scale = Vector2( 0.3, 1100 )
+texture = SubResource( 2 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+

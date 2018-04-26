@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Street.gd" type="Script" id=1]
+[ext_resource path="res://assets/street.png" type="Texture" id=2]
+
+[node name="Street" type="Node2D"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Material" ]
+speed = 1000
+
+[node name="Street1" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 3000, 200 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Street2" type="Sprite" parent="." index="1"]
+
+position = Vector2( 3000, 0 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 3000, 200 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+

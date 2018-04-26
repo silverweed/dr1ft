@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/gasgasgas.ogg-b38e2eb1a4ebc2fbd9237fdd575e44d0.oggstr"
+
+[deps]
+
+source_file="res://assets/gasgasgas.ogg"
+source_md5="fa78321ba79620c9ce021dc996a764b7"
+
+dest_files=[ "res://.import/gasgasgas.ogg-b38e2eb1a4ebc2fbd9237fdd575e44d0.oggstr" ]
+dest_md5="0c751d78f11eb78816dd65953282a047"
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,151 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Props.gd" type="Script" id=1]
+[ext_resource path="res://assets/lamp.png" type="Texture" id=2]
+
+[node name="Props" type="Node2D"]
+
+script = ExtResource( 1 )
+speed = 600
+
+[node name="P1" type="Node2D" parent="." index="0"]
+
+position = Vector2( -6.81641, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="P1" index="0"]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite2" type="Sprite" parent="P1" index="1"]
+
+position = Vector2( 250, 0 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite3" type="Sprite" parent="P1" index="2"]
+
+position = Vector2( 500, 0 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite4" type="Sprite" parent="P1" index="3"]
+
+position = Vector2( 750, 0 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite5" type="Sprite" parent="P1" index="4"]
+
+position = Vector2( 1000, 0 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite6" type="Sprite" parent="P1" index="5"]
+
+position = Vector2( 1250, 0 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite7" type="Sprite" parent="P1" index="6"]
+
+position = Vector2( 1500, 0 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite8" type="Sprite" parent="P1" index="7"]
+
+position = Vector2( 1750, 0 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite9" type="Sprite" parent="P1" index="8"]
+
+position = Vector2( 2000, 0 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite10" type="Sprite" parent="P1" index="9"]
+
+position = Vector2( 2250, 0 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite11" type="Sprite" parent="P1" index="10"]
+
+position = Vector2( 2500, 0 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="P2" type="Node2D" parent="." index="1"]
+
+position = Vector2( 2500, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="P2" index="0"]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite2" type="Sprite" parent="P2" index="1"]
+
+position = Vector2( 250, 0 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite3" type="Sprite" parent="P2" index="2"]
+
+position = Vector2( 500, 0 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite4" type="Sprite" parent="P2" index="3"]
+
+position = Vector2( 750, 0 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite5" type="Sprite" parent="P2" index="4"]
+
+position = Vector2( 1000, 0 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite6" type="Sprite" parent="P2" index="5"]
+
+position = Vector2( 1250, 0 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite7" type="Sprite" parent="P2" index="6"]
+
+position = Vector2( 1500, 0 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite8" type="Sprite" parent="P2" index="7"]
+
+position = Vector2( 1750, 0 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite9" type="Sprite" parent="P2" index="8"]
+
+position = Vector2( 2000, 0 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite10" type="Sprite" parent="P2" index="9"]
+
+position = Vector2( 2250, 0 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite11" type="Sprite" parent="P2" index="10"]
+
+position = Vector2( 2500, 0 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+

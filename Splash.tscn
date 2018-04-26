@@ -1,0 +1,182 @@
+[gd_scene load_steps=53 format=2]
+
+[ext_resource path="res://Splash.gd" type="Script" id=1]
+[ext_resource path="res://assets/splash/001.png" type="Texture" id=2]
+[ext_resource path="res://assets/splash/002.png" type="Texture" id=3]
+[ext_resource path="res://assets/splash/003.png" type="Texture" id=4]
+[ext_resource path="res://assets/splash/004.png" type="Texture" id=5]
+[ext_resource path="res://assets/splash/005.png" type="Texture" id=6]
+[ext_resource path="res://assets/splash/006.png" type="Texture" id=7]
+[ext_resource path="res://assets/splash/007.png" type="Texture" id=8]
+[ext_resource path="res://assets/splash/008.png" type="Texture" id=9]
+[ext_resource path="res://assets/splash/009.png" type="Texture" id=10]
+[ext_resource path="res://assets/splash/010.png" type="Texture" id=11]
+[ext_resource path="res://assets/splash/011.png" type="Texture" id=12]
+[ext_resource path="res://assets/splash/012.png" type="Texture" id=13]
+[ext_resource path="res://assets/splash/013.png" type="Texture" id=14]
+[ext_resource path="res://assets/splash/014.png" type="Texture" id=15]
+[ext_resource path="res://assets/splash/015.png" type="Texture" id=16]
+[ext_resource path="res://assets/splash/016.png" type="Texture" id=17]
+[ext_resource path="res://assets/splash/017.png" type="Texture" id=18]
+[ext_resource path="res://assets/splash/018.png" type="Texture" id=19]
+[ext_resource path="res://assets/splash/019.png" type="Texture" id=20]
+[ext_resource path="res://assets/splash/020.png" type="Texture" id=21]
+[ext_resource path="res://assets/splash/021.png" type="Texture" id=22]
+[ext_resource path="res://assets/splash/022.png" type="Texture" id=23]
+[ext_resource path="res://assets/splash/023.png" type="Texture" id=24]
+[ext_resource path="res://assets/splash/024.png" type="Texture" id=25]
+[ext_resource path="res://assets/splash/025.png" type="Texture" id=26]
+[ext_resource path="res://assets/splash/026.png" type="Texture" id=27]
+[ext_resource path="res://assets/splash/027.png" type="Texture" id=28]
+[ext_resource path="res://assets/splash/028.png" type="Texture" id=29]
+[ext_resource path="res://assets/splash/029.png" type="Texture" id=30]
+[ext_resource path="res://assets/splash/030.png" type="Texture" id=31]
+[ext_resource path="res://assets/splash/031.png" type="Texture" id=32]
+[ext_resource path="res://assets/splash/032.png" type="Texture" id=33]
+[ext_resource path="res://assets/splash/033.png" type="Texture" id=34]
+[ext_resource path="res://assets/splash/034.png" type="Texture" id=35]
+[ext_resource path="res://assets/splash/035.png" type="Texture" id=36]
+[ext_resource path="res://assets/splash/036.png" type="Texture" id=37]
+[ext_resource path="res://assets/splash/037.png" type="Texture" id=38]
+[ext_resource path="res://assets/splash/038.png" type="Texture" id=39]
+[ext_resource path="res://assets/splash/039.png" type="Texture" id=40]
+[ext_resource path="res://assets/splash/040.png" type="Texture" id=41]
+[ext_resource path="res://assets/splash/041.png" type="Texture" id=42]
+[ext_resource path="res://assets/splash/042.png" type="Texture" id=43]
+[ext_resource path="res://assets/splash/043.png" type="Texture" id=44]
+[ext_resource path="res://assets/splash/044.png" type="Texture" id=45]
+[ext_resource path="res://assets/splash/045.png" type="Texture" id=46]
+[ext_resource path="res://assets/venus rising rg.ttf" type="DynamicFontData" id=47]
+[ext_resource path="res://PulseLabel.gd" type="Script" id=48]
+[ext_resource path="res://assets/gasgasgas.ogg" type="AudioStream" id=49]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ) ],
+"loop": true,
+"name": "default",
+"speed": 60.0
+} ]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 64
+use_mipmaps = false
+use_filter = true
+font_data = ExtResource( 47 )
+_sections_unfolded = [ "Font", "Resource", "Settings" ]
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 32
+use_mipmaps = false
+use_filter = true
+font_data = ExtResource( 47 )
+_sections_unfolded = [ "Font", "Resource", "Settings" ]
+
+[node name="Splash" type="Node"]
+
+script = ExtResource( 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+_sections_unfolded = [ "Anchor" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="CenterContainer" index="0"]
+
+position = Vector2( 514.028, 303.431 )
+scale = Vector2( 2.00972, 1.18385 )
+frames = SubResource( 1 )
+animation = "default"
+frame = 21
+playing = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 367.0
+margin_top = 240.0
+margin_right = 657.0
+margin_bottom = 360.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 290.0
+margin_bottom = 77.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0.583333, 1, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0.820312, 1 )
+text = "DR1Ft"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 48 )
+_sections_unfolded = [ "Pause", "custom_colors", "custom_fonts", "custom_styles" ]
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 81.0
+margin_right = 290.0
+margin_bottom = 120.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0.583333, 1, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0.820312, 1 )
+text = "A /cr/ game"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 48 )
+_sections_unfolded = [ "Pause", "custom_colors", "custom_fonts", "custom_styles" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="1"]
+
+stream = ExtResource( 49 )
+volume_db = 0.0
+autoplay = true
+mix_target = 0
+bus = "Master"
+
+

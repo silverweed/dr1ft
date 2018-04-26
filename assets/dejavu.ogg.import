@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/dejavu.ogg-416d5ad22f4313db997d1e4f46238a2c.oggstr"
+
+[deps]
+
+source_file="res://assets/dejavu.ogg"
+source_md5="b271e7253f7f775faa0d70acf06ed0d9"
+
+dest_files=[ "res://.import/dejavu.ogg-416d5ad22f4313db997d1e4f46238a2c.oggstr" ]
+dest_md5="8dcbceda216f33ab0872fe2653bf1790"
+
+[params]
+
+loop=true
+loop_offset=0
