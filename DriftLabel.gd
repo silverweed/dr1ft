@@ -1,6 +1,6 @@
 extends Label
 
-onready var car = $"/root/Game/Car"
+onready var car = $"/root/Game/YSort/Car"
 onready var score_label = $"/root/Game/ScoreLabel"
 
 var drifting = false

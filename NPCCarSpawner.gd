@@ -2,7 +2,7 @@ extends Node2D
 
 const NPCCar = preload("res://NpcCar.tscn")
 
-onready var car = $"/root/Game/Car"
+onready var car = $"/root/Game/YSort/Car"
 
 var speed_boost = 0
 var max_t = 7

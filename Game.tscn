@@ -10,10 +10,10 @@
 [ext_resource path="res://assets/bars.png" type="Texture" id=8]
 [ext_resource path="res://assets/dejavu_cut.ogg" type="AudioStream" id=9]
 [ext_resource path="res://AudioStreamPlayer.gd" type="Script" id=10]
-[ext_resource path="res://Car.tscn" type="PackedScene" id=11]
-[ext_resource path="res://assets/venus rising rg.ttf" type="DynamicFontData" id=12]
-[ext_resource path="res://DriftLabel.gd" type="Script" id=13]
-[ext_resource path="res://ScoreLabel.gd" type="Script" id=14]
+[ext_resource path="res://assets/venus rising rg.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://DriftLabel.gd" type="Script" id=12]
+[ext_resource path="res://ScoreLabel.gd" type="Script" id=13]
+[ext_resource path="res://Car.tscn" type="PackedScene" id=14]
 [ext_resource path="res://NPCCarSpawner.tscn" type="PackedScene" id=15]
 
 [sub_resource type="Environment" id=1]
@@ -100,7 +100,7 @@ _sections_unfolded = [ "Ambient Light", "Background", "Glow", "Glow/levels", "Re
 size = 30
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 12 )
+font_data = ExtResource( 11 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=3]
@@ -108,7 +108,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 size = 40
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 12 )
+font_data = ExtResource( 11 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Game" type="Node" index="0"]
@@ -191,13 +191,7 @@ editor_draw_limits = false
 editor_draw_drag_margin = false
 _sections_unfolded = [ "Material", "Visibility" ]
 
-[node name="Car" parent="." index="10" instance=ExtResource( 11 )]
-
-position = Vector2( 195.553, 516.017 )
-frame = 0
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
-
-[node name="DriftLabel" type="Label" parent="." index="11"]
+[node name="DriftLabel" type="Label" parent="." index="10"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -218,10 +212,10 @@ text = "LShift or A to DRIFT"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 13 )
+script = ExtResource( 12 )
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="ScoreLabel" type="Label" parent="." index="12"]
+[node name="ScoreLabel" type="Label" parent="." index="11"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -240,23 +234,33 @@ text = "SCORE:"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 14 )
+script = ExtResource( 13 )
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="NPCCarSpawner" parent="." index="13" instance=ExtResource( 15 )]
+[node name="YSort" type="YSort" parent="." index="12"]
+
+sort_enabled = true
+
+[node name="Car" parent="YSort" index="0" instance=ExtResource( 14 )]
+
+position = Vector2( 195.553, 516.017 )
+z_index = 0
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="NPCCarSpawner" parent="YSort" index="1" instance=ExtResource( 15 )]
 
 position = Vector2( 1840.38, 488.496 )
 
-[connection signal="on_drift" from="Car" to="WorldEnvironment" method="start_drift"]
+[connection signal="on_drift" from="YSort/Car" to="AudioStreamPlayer" method="start_drift"]
 
-[connection signal="on_drift" from="Car" to="AudioStreamPlayer" method="start_drift"]
+[connection signal="on_drift" from="YSort/Car" to="DriftLabel" method="on_drift"]
 
-[connection signal="on_drift" from="Car" to="DriftLabel" method="on_drift"]
+[connection signal="on_drift" from="YSort/Car" to="WorldEnvironment" method="start_drift"]
 
-[connection signal="on_stop_drift" from="Car" to="WorldEnvironment" method="stop_drift"]
+[connection signal="on_stop_drift" from="YSort/Car" to="AudioStreamPlayer" method="stop_drift"]
 
-[connection signal="on_stop_drift" from="Car" to="AudioStreamPlayer" method="stop_drift"]
+[connection signal="on_stop_drift" from="YSort/Car" to="DriftLabel" method="stop_drift"]
 
-[connection signal="on_stop_drift" from="Car" to="DriftLabel" method="stop_drift"]
+[connection signal="on_stop_drift" from="YSort/Car" to="WorldEnvironment" method="stop_drift"]
 
 
