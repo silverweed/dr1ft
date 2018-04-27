@@ -194,6 +194,7 @@ _sections_unfolded = [ "Material", "Visibility" ]
 [node name="Car" parent="." index="10" instance=ExtResource( 11 )]
 
 position = Vector2( 195.553, 516.017 )
+frame = 0
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="DriftLabel" type="Label" parent="." index="11"]
@@ -213,7 +214,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 2 )
-text = "LShift to DRIFT"
+text = "LShift or A to DRIFT"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -248,14 +249,14 @@ position = Vector2( 1840.38, 488.496 )
 
 [connection signal="on_drift" from="Car" to="WorldEnvironment" method="start_drift"]
 
-[connection signal="on_drift" from="Car" to="DriftLabel" method="on_drift"]
-
 [connection signal="on_drift" from="Car" to="AudioStreamPlayer" method="start_drift"]
+
+[connection signal="on_drift" from="Car" to="DriftLabel" method="on_drift"]
 
 [connection signal="on_stop_drift" from="Car" to="WorldEnvironment" method="stop_drift"]
 
-[connection signal="on_stop_drift" from="Car" to="DriftLabel" method="stop_drift"]
-
 [connection signal="on_stop_drift" from="Car" to="AudioStreamPlayer" method="stop_drift"]
+
+[connection signal="on_stop_drift" from="Car" to="DriftLabel" method="stop_drift"]
 
 

@@ -107,7 +107,7 @@ func _process(delta):
 	time += delta
 	modulate.g = G_A + (G_B - G_A) * abs(sin(time * PULSE))"
 
-[node name="Splash" type="Node"]
+[node name="Splash" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -132,7 +132,7 @@ position = Vector2( 514.028, 303.431 )
 scale = Vector2( 2.00972, 1.18385 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 30
+frame = 15
 playing = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" index="1"]
@@ -248,7 +248,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 5 )
-text = "LMB or SPACE to START"
+text = "LMB or START to PLAY"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
