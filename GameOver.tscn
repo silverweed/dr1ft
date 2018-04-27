@@ -76,6 +76,7 @@ position = Vector2( 520.135, 297.826 )
 scale = Vector2( 1.58399, 1.12762 )
 frames = SubResource( 1 )
 animation = "default"
+frame = 12
 playing = true
 
 [node name="Sprite" type="Sprite" parent="." index="2"]

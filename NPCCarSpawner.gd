@@ -23,4 +23,4 @@ func spawn():
 	npc.position.x = position.x
 	npc.position.y = y
 	npc.speed += speed_boost
-	get_parent().add_child(npc)
+	get_parent().call_deferred("add_child", npc)

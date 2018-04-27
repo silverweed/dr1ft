@@ -75,7 +75,7 @@ use_filter = true
 font_data = ExtResource( 47 )
 _sections_unfolded = [ "Font", "Resource", "Settings" ]
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=4]
 
 size = 18
 use_mipmaps = false
@@ -83,7 +83,7 @@ use_filter = true
 font_data = ExtResource( 47 )
 _sections_unfolded = [ "Font", "Resource", "Settings" ]
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 
 size = 20
 use_mipmaps = false
@@ -91,7 +91,7 @@ use_filter = false
 font_data = ExtResource( 47 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="GDScript" id=5]
+[sub_resource type="GDScript" id=6]
 
 script/source = "extends Label
 
@@ -132,7 +132,7 @@ position = Vector2( 514.028, 303.431 )
 scale = Vector2( 2.00972, 1.18385 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 2
+frame = 30
 playing = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" index="1"]
@@ -219,7 +219,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 0.583333, 1, 1 )
 custom_colors/font_color_shadow = Color( 1, 0, 0.820312, 1 )
 text = "by silverweed"
@@ -247,13 +247,13 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "LMB or SPACE to START"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = SubResource( 5 )
+script = SubResource( 6 )
 _sections_unfolded = [ "Margin", "Rect", "Visibility", "custom_fonts" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2"]
