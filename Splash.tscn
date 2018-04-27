@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://Splash.gd" type="Script" id=1]
 [ext_resource path="res://assets/splash/001.png" type="Texture" id=2]
@@ -75,6 +75,38 @@ use_filter = true
 font_data = ExtResource( 47 )
 _sections_unfolded = [ "Font", "Resource", "Settings" ]
 
+[sub_resource type="DynamicFont" id=6]
+
+size = 18
+use_mipmaps = false
+use_filter = true
+font_data = ExtResource( 47 )
+_sections_unfolded = [ "Font", "Resource", "Settings" ]
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 20
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 47 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="GDScript" id=5]
+
+script/source = "extends Label
+
+const G_A = 185 / 255;
+const G_B = 1;
+
+# This is kinda in sync with the audio track, but has some, heh, drift
+const PULSE = 4.05
+
+var time = 0
+
+func _process(delta):
+	time += delta
+	modulate.g = G_A + (G_B - G_A) * abs(sin(time * PULSE))"
+
 [node name="Splash" type="Node"]
 
 script = ExtResource( 1 )
@@ -100,7 +132,7 @@ position = Vector2( 514.028, 303.431 )
 scale = Vector2( 2.00972, 1.18385 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 21
+frame = 2
 playing = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" index="1"]
@@ -110,9 +142,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 367.0
-margin_top = 240.0
+margin_top = 226.0
 margin_right = 657.0
-margin_bottom = 360.0
+margin_bottom = 373.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -165,13 +197,66 @@ custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 0.583333, 1, 1 )
 custom_colors/font_color_shadow = Color( 1, 0, 0.820312, 1 )
 text = "A /cr/ game"
+align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 script = ExtResource( 48 )
 _sections_unfolded = [ "Pause", "custom_colors", "custom_fonts", "custom_styles" ]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="1"]
+[node name="Label3" type="Label" parent="CenterContainer/VBoxContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 124.0
+margin_right = 290.0
+margin_bottom = 147.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 1, 0.583333, 1, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0.820312, 1 )
+text = "by silverweed"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 48 )
+_sections_unfolded = [ "Margin", "Pause", "custom_colors", "custom_fonts", "custom_styles" ]
+
+[node name="StartLabel" type="Label" parent="." index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 333.0
+margin_top = 439.0
+margin_right = 706.0
+margin_bottom = 464.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+text = "LMB or SPACE to START"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = SubResource( 5 )
+_sections_unfolded = [ "Margin", "Rect", "Visibility", "custom_fonts" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2"]
 
 stream = ExtResource( 49 )
 volume_db = 0.0

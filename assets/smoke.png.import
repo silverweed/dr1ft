@@ -7,10 +7,10 @@ path="res://.import/smoke.png-dd48eb81a12e0cb45caa95e293df3180.stex"
 [deps]
 
 source_file="res://assets/smoke.png"
-source_md5="d40c7a30761c2f50077b75529cb4d740"
+source_md5="3833a4e6467be6994b680a2ba36d7cc2"
 
 dest_files=[ "res://.import/smoke.png-dd48eb81a12e0cb45caa95e293df3180.stex" ]
-dest_md5="a2ca01a738e14676d150bcd4c88c00a8"
+dest_md5="ee0c95ae3c82dfb4a41f694bdd02a8ca"
 
 [params]
 

@@ -1,10 +1,29 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://assets/car/car1.png" type="Texture" id=1]
 [ext_resource path="res://assets/car/car2.png" type="Texture" id=2]
-[ext_resource path="res://assets/car/car-drift1.png" type="Texture" id=3]
-[ext_resource path="res://Car.gd" type="Script" id=4]
-[ext_resource path="res://assets/smoke.png" type="Texture" id=5]
+[ext_resource path="res://assets/explosion/009.png" type="Texture" id=3]
+[ext_resource path="res://assets/explosion/010.png" type="Texture" id=4]
+[ext_resource path="res://assets/explosion/011.png" type="Texture" id=5]
+[ext_resource path="res://assets/explosion/012.png" type="Texture" id=6]
+[ext_resource path="res://assets/explosion/013.png" type="Texture" id=7]
+[ext_resource path="res://assets/explosion/014.png" type="Texture" id=8]
+[ext_resource path="res://assets/explosion/015.png" type="Texture" id=9]
+[ext_resource path="res://assets/explosion/016.png" type="Texture" id=10]
+[ext_resource path="res://assets/explosion/017.png" type="Texture" id=11]
+[ext_resource path="res://assets/explosion/001.png" type="Texture" id=12]
+[ext_resource path="res://assets/explosion/002.png" type="Texture" id=13]
+[ext_resource path="res://assets/explosion/003.png" type="Texture" id=14]
+[ext_resource path="res://assets/explosion/004.png" type="Texture" id=15]
+[ext_resource path="res://assets/explosion/005.png" type="Texture" id=16]
+[ext_resource path="res://assets/explosion/006.png" type="Texture" id=17]
+[ext_resource path="res://assets/explosion/007.png" type="Texture" id=18]
+[ext_resource path="res://assets/explosion/008.png" type="Texture" id=19]
+[ext_resource path="res://assets/car/car-drift1.png" type="Texture" id=20]
+[ext_resource path="res://Car.gd" type="Script" id=21]
+[ext_resource path="res://assets/smoke.png" type="Texture" id=22]
+[ext_resource path="res://assets/lightmask.png" type="Texture" id=23]
+[ext_resource path="res://CarLight.gd" type="Script" id=24]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -14,7 +33,12 @@ animations = [ {
 "name": "default",
 "speed": 5.15
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ],
+"loop": false,
+"name": "explode",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 20 ) ],
 "loop": true,
 "name": "drift",
 "speed": 5.0
@@ -29,11 +53,11 @@ emission_shape = 0
 flag_align_y = false
 flag_rotate_y = false
 flag_disable_z = true
-spread = 45.0
+spread = 40.0
 flatness = 0.0
 gravity = Vector3( -100, 0, 0 )
-initial_velocity = 30.0
-initial_velocity_random = 0.0
+initial_velocity = 40.0
+initial_velocity_random = 1.0
 angular_velocity = 0.0
 angular_velocity_random = 0.0
 orbit_velocity = 0.0
@@ -58,24 +82,51 @@ anim_speed_random = 0.0
 anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
-_sections_unfolded = [ "Angle", "Animation", "Damping", "Emission Shape", "Gravity", "Initial Velocity", "Scale", "Trail" ]
+_sections_unfolded = [ "Angle", "Animation", "Damping", "Emission Shape", "Gravity", "Initial Velocity", "Scale", "Spread", "Trail" ]
 
-[node name="Car" type="AnimatedSprite" index="0"]
+[sub_resource type="Gradient" id=3]
 
+offsets = PoolRealArray( 0, 1 )
+colors = PoolColorArray( 0, 1, 0.8125, 1, 0, 0.844879, 0.957031, 1 )
+
+[sub_resource type="GradientTexture" id=4]
+
+flags = 4
+gradient = SubResource( 3 )
+width = 256
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 70.1435, 13.9646 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 19.8961, 45.812 )
+
+[node name="Car" type="AnimatedSprite"]
+
+modulate = Color( 0.973938, 0.523438, 1, 1 )
+light_mask = 3
+z_index = 1
 frames = SubResource( 1 )
-animation = "drift"
+animation = "default"
+frame = 1
 playing = true
-script = ExtResource( 4 )
+script = ExtResource( 21 )
+_sections_unfolded = [ "Visibility", "Z Index" ]
 
 [node name="Particles2D" type="Particles2D" parent="." index="0"]
 
-position = Vector2( -88.1387, 20.9208 )
+position = Vector2( -82.8829, 20.9208 )
+rotation = 3.49066
 emitting = false
-amount = 5
+amount = 10
 lifetime = 1.0
 one_shot = false
 preprocess = 0.0
-speed_scale = 1.0
+speed_scale = 2.0
 explosiveness = 0.0
 randomness = 0.0
 fixed_fps = 0
@@ -84,21 +135,22 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
 process_material = SubResource( 2 )
-texture = ExtResource( 5 )
+texture = ExtResource( 22 )
 normal_map = null
 h_frames = 1
 v_frames = 1
-_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time" ]
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform" ]
 
 [node name="Particles2D2" type="Particles2D" parent="." index="1"]
 
-position = Vector2( -34.8681, 55.0141 )
+position = Vector2( -29.1465, 52.3733 )
+rotation = 3.49066
 emitting = false
 amount = 5
 lifetime = 1.0
 one_shot = false
 preprocess = 0.0
-speed_scale = 1.0
+speed_scale = 2.0
 explosiveness = 0.0
 randomness = 0.0
 fixed_fps = 0
@@ -107,10 +159,91 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
 process_material = SubResource( 2 )
-texture = ExtResource( 5 )
+texture = ExtResource( 22 )
 normal_map = null
 h_frames = 1
 v_frames = 1
-_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time" ]
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="." index="2"]
+
+visible = false
+modulate = Color( 1, 1, 1, 0.618784 )
+position = Vector2( -136.665, -104.82 )
+scale = Vector2( 1, 238.229 )
+texture = SubResource( 4 )
+centered = false
+_sections_unfolded = [ "Animation", "Offset", "Visibility" ]
+
+[node name="Light2D" type="Light2D" parent="." index="3"]
+
+position = Vector2( 129.853, 11.5841 )
+rotation = 0.287721
+scale = Vector2( 1, 1.69168 )
+enabled = true
+editor_only = false
+texture = ExtResource( 23 )
+offset = Vector2( 0, 0 )
+texture_scale = 1.0
+color = Color( 0, 1, 0.953125, 1 )
+energy = 1.0
+mode = 3
+range_height = 0.0
+range_z_min = -1024
+range_z_max = 1024
+range_layer_min = 0
+range_layer_max = 0
+range_item_cull_mask = 2
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 0 )
+shadow_buffer_size = 2048
+shadow_gradient_length = 0.0
+shadow_filter = 0
+shadow_filter_smooth = 0.0
+shadow_item_cull_mask = 1
+script = ExtResource( 24 )
+_sections_unfolded = [ "Range", "Visibility" ]
+
+[node name="DefaultArea" type="Area2D" parent="." index="4"]
+
+position = Vector2( 1.58885, 12.7109 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DefaultArea" index="0"]
+
+position = Vector2( -11.9666, 8.07327 )
+scale = Vector2( 1, 1.18732 )
+shape = SubResource( 5 )
+
+[node name="DriftArea" type="Area2D" parent="." index="5"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+monitoring = false
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DriftArea" index="0"]
+
+position = Vector2( 0.441315, 18.2828 )
+scale = Vector2( 3.99939, 1 )
+shape = SubResource( 6 )
+
+[connection signal="area_entered" from="DefaultArea" to="." method="_on_Area2D_area_entered"]
+
+[connection signal="area_entered" from="DriftArea" to="." method="_on_DriftArea_area_entered"]
 
 
