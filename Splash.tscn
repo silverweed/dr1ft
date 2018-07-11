@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://Splash.gd" type="Script" id=1]
 [ext_resource path="res://assets/splash/001.png" type="Texture" id=2]
@@ -48,7 +48,8 @@
 [ext_resource path="res://assets/splash/045.png" type="Texture" id=46]
 [ext_resource path="res://assets/venus rising rg.ttf" type="DynamicFontData" id=47]
 [ext_resource path="res://PulseLabel.gd" type="Script" id=48]
-[ext_resource path="res://assets/gasgasgas.ogg" type="AudioStream" id=49]
+[ext_resource path="res://HighScoreLabel.tscn" type="PackedScene" id=49]
+[ext_resource path="res://assets/gasgasgas.ogg" type="AudioStream" id=50]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -107,6 +108,14 @@ func _process(delta):
 	time += delta
 	modulate.g = G_A + (G_B - G_A) * abs(sin(time * PULSE))"
 
+[sub_resource type="DynamicFont" id=7]
+
+size = 10
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 47 )
+_sections_unfolded = [ "Font", "Settings" ]
+
 [node name="Splash" type="Node"]
 
 script = ExtResource( 1 )
@@ -132,7 +141,7 @@ position = Vector2( 514.028, 303.431 )
 scale = Vector2( 2.00972, 1.18385 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 27
+frame = 28
 playing = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" index="1"]
@@ -141,10 +150,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 367.0
-margin_top = 226.0
-margin_right = 657.0
-margin_bottom = 373.0
+margin_left = 368.0
+margin_top = 248.0
+margin_right = 656.0
+margin_bottom = 352.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -159,7 +168,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 290.0
+margin_right = 288.0
 margin_bottom = 77.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -180,6 +189,7 @@ _sections_unfolded = [ "Pause", "custom_colors", "custom_fonts", "custom_styles"
 
 [node name="Label2" type="Label" parent="CenterContainer/VBoxContainer" index="1"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -210,9 +220,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 124.0
-margin_right = 290.0
-margin_bottom = 147.0
+margin_top = 81.0
+margin_right = 288.0
+margin_bottom = 104.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -230,7 +240,9 @@ max_lines_visible = -1
 script = ExtResource( 48 )
 _sections_unfolded = [ "Margin", "Pause", "custom_colors", "custom_fonts", "custom_styles" ]
 
-[node name="StartLabel" type="Label" parent="." index="1"]
+[node name="HighScoreLabel" parent="." index="1" instance=ExtResource( 49 )]
+
+[node name="StartLabel" type="Label" parent="." index="2"]
 
 visible = false
 anchor_left = 0.0
@@ -248,7 +260,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 5 )
-text = "LMB or START to PLAY"
+text = "LMB or SPACE to START"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -256,9 +268,168 @@ max_lines_visible = -1
 script = SubResource( 6 )
 _sections_unfolded = [ "Margin", "Rect", "Visibility", "custom_fonts" ]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="3"]
 
-stream = ExtResource( 49 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_top = 514.0
+margin_right = 687.0
+margin_bottom = 605.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="CreditsLabel" type="Label" parent="VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 679.0
+margin_bottom = 13.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0.868225, 0.503906, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.757813, 0, 1, 1 )
+text = "Main Menu and Game Over screen art by [dualvoidanima.tumblr.com]"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="CreditsLabel2" type="Label" parent="VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 17.0
+margin_right = 679.0
+margin_bottom = 30.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0.868225, 0.503906, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.757813, 0, 1, 1 )
+text = "Music:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="CreditsLabel3" type="Label" parent="VBoxContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 34.0
+margin_right = 679.0
+margin_bottom = 47.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0.868225, 0.503906, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.757813, 0, 1, 1 )
+text = "Initial D - DejaVu by Super Eurobeat - Dave Rodgers"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="CreditsLabel4" type="Label" parent="VBoxContainer" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 51.0
+margin_right = 679.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0.868225, 0.503906, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.757813, 0, 1, 1 )
+text = "Gas Gas Gas by Manuel"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="CreditsLabel5" type="Label" parent="VBoxContainer" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 68.0
+margin_right = 679.0
+margin_bottom = 81.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0.868225, 0.503906, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.757813, 0, 1, 1 )
+text = "Initial D - Back On The Rocks / Mega NGR"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="VersionLabel" type="Label" parent="." index="4"]
+
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+margin_left = -50.0
+margin_top = 5.0
+margin_bottom = 15.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 7 )
+text = "v 0.2"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "custom_fonts" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="5"]
+
+stream = ExtResource( 50 )
 volume_db = 0.0
 autoplay = true
 mix_target = 0

@@ -10,9 +10,11 @@ const MAX_X = 800
 
 var spd = 400
 var drifting = false
+var dead = false
 
 signal on_drift
 signal on_stop_drift
+signal on_explode
 	
 func _input(event):
 	if event.is_action_pressed("drift"):
@@ -56,11 +58,19 @@ func _on_Area2D_area_entered(area):
 	game_over()
 		
 func game_over():
+	if dead:
+		return 
+	dead = true
 	set_process_input(false)
 	set_process(false)
 	play("explode")
+	emit_signal("on_explode")
+	$Particles2D.hide()
+	$Particles2D2.hide()
+	$AudioStreamPlayer.play()
+	$"/root/Game/AudioStreamPlayer".fade_audio()
 	var timer = Timer.new()
-	timer.wait_time = 1
+	timer.wait_time = 2
 	timer.connect("timeout", self, "go_to_gameover_screen")
 	add_child(timer)
 	timer.start()

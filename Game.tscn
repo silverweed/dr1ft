@@ -1,20 +1,25 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Stars.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sun.tscn" type="PackedScene" id=3]
-[ext_resource path="res://River.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Props.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Street.tscn" type="PackedScene" id=6]
-[ext_resource path="res://WorldEnvironment.gd" type="Script" id=7]
-[ext_resource path="res://assets/bars.png" type="Texture" id=8]
-[ext_resource path="res://assets/dejavu_cut.ogg" type="AudioStream" id=9]
-[ext_resource path="res://AudioStreamPlayer.gd" type="Script" id=10]
-[ext_resource path="res://assets/venus rising rg.ttf" type="DynamicFontData" id=11]
-[ext_resource path="res://DriftLabel.gd" type="Script" id=12]
-[ext_resource path="res://ScoreLabel.gd" type="Script" id=13]
-[ext_resource path="res://Car.tscn" type="PackedScene" id=14]
-[ext_resource path="res://NPCCarSpawner.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/fujiyama.png" type="Texture" id=3]
+[ext_resource path="res://Sun.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/river.png" type="Texture" id=5]
+[ext_resource path="res://assets/mounts.png" type="Texture" id=6]
+[ext_resource path="res://Skyline.tscn" type="PackedScene" id=7]
+[ext_resource path="res://River.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Props.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Street.tscn" type="PackedScene" id=10]
+[ext_resource path="res://WorldEnvironment.gd" type="Script" id=11]
+[ext_resource path="res://assets/bars.png" type="Texture" id=12]
+[ext_resource path="res://assets/dejavu_cut.ogg" type="AudioStream" id=13]
+[ext_resource path="res://AudioStreamPlayer.gd" type="Script" id=14]
+[ext_resource path="res://assets/venus rising rg.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://DriftLabel.gd" type="Script" id=16]
+[ext_resource path="res://ScoreLabel.gd" type="Script" id=17]
+[ext_resource path="res://Aircraft.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Car.tscn" type="PackedScene" id=19]
+[ext_resource path="res://NPCCarSpawner.tscn" type="PackedScene" id=20]
 
 [sub_resource type="Environment" id=1]
 
@@ -100,7 +105,7 @@ _sections_unfolded = [ "Ambient Light", "Background", "Glow", "Glow/levels", "Re
 size = 30
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 11 )
+font_data = ExtResource( 15 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=3]
@@ -108,10 +113,10 @@ _sections_unfolded = [ "Font", "Settings" ]
 size = 40
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 11 )
+font_data = ExtResource( 15 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Game" type="Node" index="0"]
+[node name="Game" type="Node"]
 
 [node name="Background" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -122,32 +127,65 @@ _sections_unfolded = [ "Z Index" ]
 
 position = Vector2( 509, 129 )
 
-[node name="Sun" parent="." index="2" instance=ExtResource( 3 )]
+[node name="fujiyama" type="Sprite" parent="." index="2"]
+
+modulate = Color( 0.636726, 0.39209, 0.6875, 1 )
+position = Vector2( 140, 190 )
+scale = Vector2( 2.07896, 2.57012 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Sun" parent="." index="3" instance=ExtResource( 4 )]
 
 position = Vector2( 530.822, 341.257 )
 
-[node name="River" parent="." index="3" instance=ExtResource( 4 )]
+[node name="ocean_bg" type="Sprite" parent="." index="4"]
+
+modulate = Color( 0.36499, 0, 0.40625, 0.640902 )
+position = Vector2( 763.095, 427.538 )
+scale = Vector2( 394.146, 0.370147 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="mounts" type="Sprite" parent="." index="5"]
+
+position = Vector2( 855, 211.25 )
+scale = Vector2( 3.41667, 3.6875 )
+texture = ExtResource( 6 )
+
+[node name="Skyline" parent="." index="6" instance=ExtResource( 7 )]
+
+position = Vector2( 999.775, 260.221 )
+scale = Vector2( 0.920454, 0.920454 )
+
+[node name="Skyline2" parent="." index="7" instance=ExtResource( 7 )]
+
+position = Vector2( 5.73888, 273.697 )
+scale = Vector2( -0.718894, 0.857838 )
+t = 2.5
+
+[node name="River" parent="." index="8" instance=ExtResource( 8 )]
 
 position = Vector2( 592.031, 608.893 )
 
-[node name="Props" parent="." index="4" instance=ExtResource( 5 )]
+[node name="Props" parent="." index="9" instance=ExtResource( 9 )]
 
 position = Vector2( 27, 310 )
 
-[node name="Street" parent="." index="5" instance=ExtResource( 6 )]
+[node name="Street" parent="." index="10" instance=ExtResource( 10 )]
 
 position = Vector2( 54.5719, 500.107 )
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="6"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="11"]
 
 environment = SubResource( 1 )
-script = ExtResource( 7 )
+script = ExtResource( 11 )
 
-[node name="Scanlines" type="Sprite" parent="." index="7"]
+[node name="Scanlines" type="Sprite" parent="." index="12"]
 
 modulate = Color( 1, 1, 1, 0.18 )
 position = Vector2( 346.617, 209.467 )
-texture = ExtResource( 8 )
+texture = ExtResource( 12 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 2000, 2000 )
 _sections_unfolded = [ "Region", "Visibility" ]
@@ -155,16 +193,16 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="8"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="13"]
 
-stream = ExtResource( 9 )
+stream = ExtResource( 13 )
 volume_db = 0.0
 autoplay = true
 mix_target = 0
 bus = "Master"
-script = ExtResource( 10 )
+script = ExtResource( 14 )
 
-[node name="Camera2D" type="Camera2D" parent="." index="9"]
+[node name="Camera2D" type="Camera2D" parent="." index="14"]
 
 position = Vector2( 516.738, 295.279 )
 anchor_mode = 1
@@ -191,7 +229,7 @@ editor_draw_limits = false
 editor_draw_drag_margin = false
 _sections_unfolded = [ "Material", "Visibility" ]
 
-[node name="DriftLabel" type="Label" parent="." index="10"]
+[node name="DriftLabel" type="Label" parent="." index="15"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -208,21 +246,23 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 2 )
-text = "LShift or A to DRIFT"
+text = "LShift to DRIFT"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 12 )
-_sections_unfolded = [ "custom_fonts" ]
+script = ExtResource( 16 )
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="ScoreLabel" type="Label" parent="." index="11"]
+[node name="ScoreLabel" type="Label" parent="." index="16"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 14.0
+margin_left = 15.0
+margin_top = 5.0
+margin_right = 209.0
+margin_bottom = 49.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -234,33 +274,43 @@ text = "SCORE:"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 13 )
-_sections_unfolded = [ "custom_fonts" ]
+script = ExtResource( 17 )
+_sections_unfolded = [ "Margin", "custom_fonts" ]
 
-[node name="YSort" type="YSort" parent="." index="12"]
+[node name="Aircraft" parent="." index="17" instance=ExtResource( 18 )]
+
+position = Vector2( -154.65, 23.5845 )
+scale = Vector2( 2.71074, 2.71074 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="YSort" type="YSort" parent="." index="18"]
 
 sort_enabled = true
 
-[node name="Car" parent="YSort" index="0" instance=ExtResource( 14 )]
+[node name="Car" parent="YSort" index="0" instance=ExtResource( 19 )]
 
 position = Vector2( 195.553, 516.017 )
 z_index = 0
+frame = 0
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
-[node name="NPCCarSpawner" parent="YSort" index="1" instance=ExtResource( 15 )]
+[node name="NPCCarSpawner" parent="YSort" index="1" instance=ExtResource( 20 )]
 
 position = Vector2( 1840.38, 488.496 )
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [connection signal="on_drift" from="YSort/Car" to="AudioStreamPlayer" method="start_drift"]
 
+[connection signal="on_drift" from="YSort/Car" to="WorldEnvironment" method="start_drift"]
+
 [connection signal="on_drift" from="YSort/Car" to="DriftLabel" method="on_drift"]
 
-[connection signal="on_drift" from="YSort/Car" to="WorldEnvironment" method="start_drift"]
+[connection signal="on_explode" from="YSort/Car" to="DriftLabel" method="_on_Car_on_explode"]
 
 [connection signal="on_stop_drift" from="YSort/Car" to="AudioStreamPlayer" method="stop_drift"]
 
-[connection signal="on_stop_drift" from="YSort/Car" to="DriftLabel" method="stop_drift"]
-
 [connection signal="on_stop_drift" from="YSort/Car" to="WorldEnvironment" method="stop_drift"]
+
+[connection signal="on_stop_drift" from="YSort/Car" to="DriftLabel" method="stop_drift"]
 
 

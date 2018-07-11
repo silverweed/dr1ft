@@ -12,3 +12,7 @@ func do_update_score(step):
 		displayed_score = min(score, displayed_score + step)
 		text = "SCORE: " + str(displayed_score)
 		yield(get_tree(), "idle_frame")
+		
+func _exit_tree():
+	if score > $"/root/Global".get_high_score():
+		$"/root/Global".save_score(score)

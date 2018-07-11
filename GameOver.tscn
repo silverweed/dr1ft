@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://GameOver.gd" type="Script" id=1]
 [ext_resource path="res://assets/lightmask.png" type="Texture" id=2]
@@ -48,6 +48,7 @@
 [ext_resource path="res://assets/gameover/044.png" type="Texture" id=46]
 [ext_resource path="res://assets/gameover/045.png" type="Texture" id=47]
 [ext_resource path="res://assets/gameover/CRTFrame.png" type="Texture" id=48]
+[ext_resource path="res://assets/back_on_the_rocks.ogg" type="AudioStream" id=49]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -76,7 +77,7 @@ position = Vector2( 520.135, 297.826 )
 scale = Vector2( 1.58399, 1.12762 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 12
+frame = 21
 playing = true
 
 [node name="Sprite" type="Sprite" parent="." index="2"]
@@ -84,5 +85,13 @@ playing = true
 position = Vector2( 521.662, 296.293 )
 scale = Vector2( 0.799098, 0.74749 )
 texture = ExtResource( 48 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = ExtResource( 49 )
+volume_db = 0.0
+autoplay = true
+mix_target = 0
+bus = "Master"
 
 
